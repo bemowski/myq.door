@@ -3,6 +3,7 @@
 # References
 
 https://github.com/chemdrew/MyQ-LiftMaster-Chamberlain-API
+
 https://github.com/Einstein42/myq-garage/blob/master/myq-garage.py
 
 

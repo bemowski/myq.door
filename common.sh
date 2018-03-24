@@ -24,6 +24,3 @@ DESIRED_STATE_CLOSED=0
 # echo ${GARAGE_STATES[2]}
 GARAGE_STATES=('' 'Open' 'Closed' 'Stopped' 'Opening' 'Closing')
 
-echo "closed: ${GARAGE_STATES[2]}"
-
-
