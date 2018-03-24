@@ -3,7 +3,7 @@
 
 SECURITY_TOKEN=$(cat login-result.json|jq -r .SecurityToken)
 
-DEVICE_ID=$(cat devices-result.json|jq .Devices[0].MyQDeviceId)
+DEVICE_ID=$(cat devices-result.json|jq .Devices[1].MyQDeviceId)
 
 DOOR_STATE_ATTRIBUTE=doorstate
 
@@ -11,7 +11,7 @@ echo "DeviceId: $DEVICE_ID"
 
 #MyQDeviceTypeAttributeId=322
 
-CURL="curl -H SecurityToken:$SECURITY_TOKEN $HEADERS $BASE_URL/api/v4/deviceattribute/getdeviceattribute?AttributeName=${DOOR_STATE_ATTRIBUTE}&MyQDeviceId=${DEVICE_ID}"
+CURL="curl -v -H SecurityToken:$SECURITY_TOKEN $HEADERS $BASE_URL/api/v4/deviceattribute/getdeviceattribute?AttributeName=${DOOR_STATE_ATTRIBUTE}&MyQDeviceId=${DEVICE_ID}"
 
 echo $CURL
 
