@@ -13,28 +13,63 @@ You must call login.sh, and deviceinfo.sh before using getstate.sh, open.sh, or 
 
 ## Login
 
-    ./login.sh
+```bash
+./login.sh
+```
 
 ### login.json
 
 requires ./login.json - 
 
 Format:
-    {"username":"user@gmail.com","password":"##########"}
+```json
+{"username":"user@gmail.com","password":"##########"}
+```
 
 ## Get device id
 
-    deviceinfo.sh
-
+``` bash
+deviceinfo.sh
+```
 
 ## Get Door State
 
-    ./getstate.sh
+```bash
+./getstate.sh
+```
 
 ## Set Door State
 
-    ./open.sh
+Close Door:
 
-    ./close.sh
+```bash
+setstate.sh 0
+```
+
+Open Door:
+```bash
+setstate.sh 1
+```
+
+
+# Cron
+
+After individual bits are working, wrote this:
+
+```bash
+echo "Starting close garage door."
+./login.sh
+./deviceinfo.sh
+./setstate.sh 0
+sleep 45
+./getstate.sh
+echo 
+echo "Garage Door should be closed"
+```
+
+```
+0 21 * * * /home/bemo/bin/close.garage.door.sh 2>&1 >> /home/bemo/cron/garage.log
+
+```
 
 
